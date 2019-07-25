@@ -38,7 +38,7 @@ public class CurrencyConversionController {
 			return new CurrencyConversion(response.getId(), fromCurrency, toCurrency,
 					response.getConservionMultiple(), quantity,
 					quantity.multiply(response.getConservionMultiple()),
-					Integer.parseInt(environment.getProperty("local.server.port")));
+					response.getPort());
 		} catch (RestClientException r) {
 			throw new RestClientException("Currency exchange service not found.");
 		}
