@@ -9,12 +9,12 @@ import com.udemy.currencyconversionservice.model.CurrencyConversion;
 //NAME should be the value in the property 'spring.application.name' in the 
 //application.properties file of the microservice wich will be consumed.
 //URL should be the host and the port of the microservice.
-@FeignClient(name = "currencyExchangeService", url = "localhost:8000")
+@FeignClient(name = "currencyExchangeService", url = "http://localhost:8000/currencyExchangeService")
 public interface CurrencyExchangeServiceProxy {
 
 	//Method whitch will be consumed in currency exchange microservice.
 	@GetMapping("/from/{fromCurrency}/to/{toCurrency}")
-	public CurrencyConversion retrieveExchangeValue(@PathVariable String fromCurrency,
-			@PathVariable String toCurrency);
+	public CurrencyConversion retrieveExchangeValue(@PathVariable("fromCurrency") String fromCurrency,
+			@PathVariable("toCurrency") String toCurrency);
 
 }
