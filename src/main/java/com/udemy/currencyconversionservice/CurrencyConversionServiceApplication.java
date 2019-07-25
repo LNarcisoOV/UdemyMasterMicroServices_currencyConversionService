@@ -6,7 +6,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 //Package for the Spring Boot's version 2.0.0.M4.
-@EnableFeignClients("org.springframework.cloud.openfeign.*")
+@EnableFeignClients(basePackages = {"org.springframework.cloud.openfeign.*"
+		, "com.udemy.currencyconversionservice.repository"})
 public class CurrencyConversionServiceApplication {
 
 	public static void main(String[] args) {
