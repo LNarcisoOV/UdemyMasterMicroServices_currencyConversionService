@@ -17,8 +17,8 @@ import com.udemy.currencyconversionservice.model.CurrencyConversion;
 
 //If eureka is configured, you don't need to inform currencyExchangeService.ribbon.listOfServers
 //in application.properties.
-@FeignClient(name = "currencyExchangeService")
-@RibbonClient(name = "currencyExchangeService")
+@FeignClient(name = "${currencyExchangeService.host}")
+@RibbonClient(name = "${currencyExchangeService.host}")
 public interface CurrencyExchangeServiceProxy {
 
 	// Method which will be consumed in currency exchange microservice.
