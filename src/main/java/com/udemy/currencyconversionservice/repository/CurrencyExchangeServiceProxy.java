@@ -14,6 +14,9 @@ import com.udemy.currencyconversionservice.model.CurrencyConversion;
 
 //With RibbonClient annotation, we don't need to inform the URL in FeignClient annotation,
 //but is necessary configure in application.properties file.
+
+//If eureka is configured, you don't need to inform currencyExchangeService.ribbon.listOfServers
+//in application.properties.
 @FeignClient(name = "currencyExchangeService")
 @RibbonClient(name = "currencyExchangeService")
 public interface CurrencyExchangeServiceProxy {
