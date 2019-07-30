@@ -19,11 +19,21 @@ import com.udemy.currencyconversionservice.model.CurrencyConversion;
 //in application.properties.
 @FeignClient(name = "${currencyExchangeService.host}")
 @RibbonClient(name = "${currencyExchangeService.host}")
+
+// Enabling zuul.
+// @FeignClient(name = "${currencyZuulApiGatewayService}")
+// @RibbonClient(name = "${currencyExchangeService.host}")
 public interface CurrencyExchangeServiceProxy {
 
 	// Method which will be consumed in currency exchange microservice.
 	@GetMapping("/from/{fromCurrency}/to/{toCurrency}")
 	public CurrencyConversion retrieveExchangeValue(@PathVariable("fromCurrency") String fromCurrency,
 			@PathVariable("toCurrency") String toCurrency);
+
+	// Uncomment if you are using zuul.
+	// Method which will be consumed in currency exchange microservice.
+	// @GetMapping("${currencyExchangeService.host}/from/{fromCurrency}/to/{toCurrency}")
+	// public CurrencyConversion retrieveExchangeValue(@PathVariable("fromCurrency") String fromCurrency,
+	// @PathVariable("toCurrency") String toCurrency);
 
 }

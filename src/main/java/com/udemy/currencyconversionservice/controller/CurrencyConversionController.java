@@ -57,7 +57,7 @@ public class CurrencyConversionController {
 					quantity.multiply(response.getConservionMultiple()), response.getPort());
 		} catch (RuntimeException r) {
 			r.printStackTrace();
-			throw new RuntimeException("An error occurs.");
+			throw new RuntimeException(r.getMessage());
 		}
 	}
 }
